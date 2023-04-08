@@ -15,6 +15,13 @@
 	<li>Geode 문서 : https://geode.apache.org/docs/guide/114/rest_apps/develop_rest_apps.html</li>
 </ul>
 
+# 3. MongoDB Data REST
+
+<ul>
+	<li>url : https://spring.io/guides/gs/accessing-mongodb-data-rest</li>
+	<li>version : openjdk17</li>
+	<li>Github : https://github.com/spring-guides/gs-accessing-mongodb-data-rest</li>
+</ul>
 
 ## 기타 
 

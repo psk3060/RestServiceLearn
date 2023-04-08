@@ -270,13 +270,14 @@ public class GeodeAccessTest {
 		/**
 		 * 등록 역순으로 조회됨
 		 */
-		mockMvc.perform(get("/people/search/findByFirstName").param("name", "Frodo"))
+		// mockMvc.perform(get("/people/search/findByFirstName").param("name", "Frodo"))
+		mockMvc.perform(get("/people/search/findByFirstNameOrderByIdAsc").param("name", "Frodo"))
 			// .andDo(print())
 			.andExpect(jsonPath("$..people.length()").value("2"))
 			.andExpect(jsonPath("$._embedded.people[0].firstName").value("Frodo"))
-			.andExpect(jsonPath("$._embedded.people[0].lastName").value("Baggins2"))
+			.andExpect(jsonPath("$._embedded.people[0].lastName").value("Baggins"))
 			.andExpect(jsonPath("$._embedded.people[1].firstName").value("Frodo"))
-			.andExpect(jsonPath("$._embedded.people[1].lastName").value("Baggins"))
+			.andExpect(jsonPath("$._embedded.people[1].lastName").value("Baggins2"))
 			
 		;
 		

@@ -22,7 +22,7 @@ public class GreetingTest {
 	void greeting() throws Exception {
 		
 		mockMvc.perform(get("/greeting"))
-			.andDo(print()) // 모든 정보 Log 출력(가능하면 추가)
+//			.andDo(print()) // 모든 정보 Log 출력(가능하면 추가)
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.content").value("Hello, World"));
 			
@@ -33,7 +33,7 @@ public class GreetingTest {
 	void greetingWithName() throws Exception {
 		
 		mockMvc.perform(get("/greeting").param("name", "Spring"))
-			.andDo(print()) // 모든 정보 Log 출력(가능하면 추가)
+//			.andDo(print()) // 모든 정보 Log 출력(가능하면 추가)
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.content").value("Hello, Spring"));
 			
