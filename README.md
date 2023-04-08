@@ -12,6 +12,7 @@
 	<li>url : https://spring.io/guides/gs/accessing-gemfire-data-rest</li>
 	<li>version : openjdk17</li>
 	<li>Github : https://github.com/spring-guides/gs-accessing-gemfire-data-rest</li>
+	<li>Geode 문서 : https://geode.apache.org/docs/guide/114/rest_apps/develop_rest_apps.html</li>
 </ul>
 
 
