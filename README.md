@@ -23,6 +23,17 @@
 	<li>Github : https://github.com/spring-guides/gs-accessing-mongodb-data-rest</li>
 </ul>
 
+# 4. MariaDB Data REST
+
+<ul>
+	<li>url : https://spring.io/guides/gs/accessing-data-mysql</li>
+	<li>version : openjdk17</li>
+	<li>Github : https://github.com/spring-guides/gs-accessing-data-mysql</li>
+</ul>
+
+
+
+
 ## 기타 
 
 <ol type="2">
