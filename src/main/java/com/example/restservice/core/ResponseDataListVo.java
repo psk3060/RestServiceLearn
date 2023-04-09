@@ -17,6 +17,16 @@ public class ResponseDataListVo extends ResponseVo {
 		super(code, message);
 	}
 	
+	public ResponseDataListVo(String code, String message, List<Map<String, Object>> dataList) {
+		this(code, message);
+		this.dataList = dataList;
+	}
+	
+	public ResponseDataListVo(String code, String message, List<Map<String, Object>> dataList, Integer totalCount) {
+		this(code, message, dataList);
+		this.totalCount = totalCount;
+	}
+	
 	private List<Map<String, Object>> dataList;
 	
 	private Integer totalCount;

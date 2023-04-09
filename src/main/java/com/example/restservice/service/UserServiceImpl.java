@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import com.example.restservice.repository.UserRepository;
 import com.example.restservice.service.model.User;
 
+/**
+ * TODO selectSearch Param 추가
+ */
 @Service("userService")
 public class UserServiceImpl implements UserService {
 	
@@ -42,6 +45,11 @@ public class UserServiceImpl implements UserService {
 				  .stream(userRepository.findAll().spliterator(), false)
 				  .collect(Collectors.toList());
 		
+	}
+	
+	@Override
+	public long totalCount() throws Exception {
+		return userRepository.count();
 	}
 	
 }

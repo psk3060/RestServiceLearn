@@ -16,4 +16,6 @@ public interface UserService {
 	
 	List<User> selectAll() throws Exception;
 	
+	long totalCount() throws Exception;
+	
 }
