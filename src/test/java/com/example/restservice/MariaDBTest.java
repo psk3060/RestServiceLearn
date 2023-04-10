@@ -30,7 +30,7 @@ import com.example.restservice.util.TestUtil;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class MariaDBAccessTest {
+public class MariaDBTest {
 	
 	@Autowired
 	DataSource dataSource;

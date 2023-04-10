@@ -1,8 +1,6 @@
 package com.example.restservice;
 
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.endsWith;
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
@@ -24,7 +22,7 @@ import com.example.restservice.repository.PersonRepositoryMongo;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class AccessingMongodbDataRestApplicationTest {
+public class MongoDBTest {
 	
 	@Autowired
 	MockMvc mockMvc;

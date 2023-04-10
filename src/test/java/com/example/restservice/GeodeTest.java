@@ -28,7 +28,7 @@ import com.example.restservice.service.model.Person;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class GeodeAccessTest {
+public class GeodeTest {
 	
 	@Autowired
 	MockMvc mockMvc;
