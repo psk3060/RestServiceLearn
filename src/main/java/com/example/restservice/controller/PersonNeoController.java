@@ -166,17 +166,17 @@ public class PersonNeoController {
 		return new ResponseEntity<>(new ResponseDataVo(code, message, data), HttpStatusCode.valueOf(200));
 	}
 	
-	@DeleteMapping("/personneo")
-	public @ResponseBody ResponseEntity<ResponseDataVo> deletePerson(@RequestBody PersonNeoVO vo) throws Exception {
+	@DeleteMapping("/personneo/{id}")
+	public @ResponseBody ResponseEntity<ResponseDataVo> deletePerson(@PathVariable Long id) throws Exception {
 		String code = "0";
 		String message = "회원 수정이 완료되었습니다.";
 		Map<String, Object> data = new HashMap<String, Object>();
 		
 		try {
 			
-			personNeoService.deleteByKey(vo.getId());
+			personNeoService.deleteByKey(id);
 			
-			data.put("result", vo.getId());
+			data.put("result", id);
 			
 		} catch(Exception e) {
 			
