@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 
 /**
  * id를 객체에서 증가시키지 않음 
+ * - MongoDB 연동 테스트에서 사용
  */
 public class PersonVO implements Serializable{
 

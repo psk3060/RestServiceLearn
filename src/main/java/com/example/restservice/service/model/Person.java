@@ -9,7 +9,8 @@ import org.springframework.data.gemfire.mapping.annotation.Region;
 import lombok.Data;
 
 /**
- * Person Entity(People 정보) 
+ * Person Entity(People 정보)
+ * Geode 연동 테스트에서 사용
  */
 @Region("People")
 @Data

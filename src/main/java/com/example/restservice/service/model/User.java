@@ -7,6 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+/**
+ * MariaDB 연동 테스트에서 사용 
+ */
 @Entity
 public class User implements Serializable {
 
