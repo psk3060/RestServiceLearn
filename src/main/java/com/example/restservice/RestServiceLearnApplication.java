@@ -21,5 +21,5 @@ public class RestServiceLearnApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RestServiceLearnApplication.class, args);
 	}
-
+	
 }
