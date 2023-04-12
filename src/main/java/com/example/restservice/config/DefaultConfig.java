@@ -69,10 +69,18 @@ public class DefaultConfig {
 	
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+		
 		return args -> {
-			QuoteResource quote = restTemplate.getForObject("http://localhost:8080/api/random", QuoteResource.class);
 			
-			logger.error("run String quote {}", quote);
+			try {
+				QuoteResource quote = restTemplate.getForObject("http://localhost:8080/api/random", QuoteResource.class);
+				
+				logger.error("run String quote {}", quote);
+				
+			} catch(Exception e) {
+				logger.error(e.toString());
+				
+			}
 			
 		};
 	}

@@ -1,6 +1,7 @@
 package com.example.restservice;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -35,6 +36,17 @@ public class GreetingTest {
 //			.andDo(print()) // 모든 정보 Log 출력(가능하면 추가)
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.content").value("Hello, Spring"));
+			
+	}
+	
+	@Test
+	void greetingNotMappingTest() throws Exception {
+		
+		mockMvc.perform(get("/greeting111").param("name", "Spring"))
+			.andDo(print()) // 모든 정보 Log 출력(가능하면 추가)
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("code").value("SYS000404"))
+			.andExpect(jsonPath("data").isEmpty());
 			
 	}
 	

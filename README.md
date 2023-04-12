@@ -2,6 +2,9 @@
 
 <ul>
 	<li>url : https://spring.io/guides/gs/rest-service</li>
+	<li>보충1 : https://spring.io/guides/gs/rest-hateoas</li>
+	<li>보충2 : https://spring.io/guides/gs/actuator-service</li>
+	<li>보충3 : https://spring.io/guides/gs/rest-service-cors</li>
 	<li>version : openjdk17</li>
 	<li>TestClass : GreetingTest(mvnw clean test -Dtest="GreetingTest")</li>
 </ul>
@@ -45,7 +48,7 @@
 	<li>TestClass : Neo4jTest(mvnw clean test -Dtest="Neo4jTest")</li>	
 </ul>
 
-# 6. Consuming REST(RestService END). Status 처리는 계속 진행
+# 6. Consuming REST(RestService)
 
 <ul>
 	<li>url : https://spring.io/guides/gs/consuming-rest</li>
@@ -53,8 +56,25 @@
 	<li>Github : https://github.com/spring-guides/gs-consuming-rest</li>
 	<li>Github-Special : https://github.com/spring-guides/quoters</li>	
 	<li>TestClass : RestComsumingTest(mvnw clean test -Dtest="RestComsumingTest")</li>		
+</ul>
+
+# 7. REST 통합
+
+<ul>
+	<li>url : https://spring.io/guides/tutorials/rest</li>
+	<li>version : openjdk17</li>
+	<li>TestClass : </li>		
+</ul>
+
+## 학습 중 정리
+
+<ul>
+	<li>Apache Geode : 광범위하게 분산된 클라우드 아키텍처 전체에서 애플리케이션에 대한 실시간 액세스 제공해주는 데이터 관리 플랫폼(여러 프로세스 간 메모리, CPU, 네트워크 리소스 등을 폴링하여 애플리케이션 개체 및 동작을 관리)</li>
+	<li>MongoDB : 도큐먼트(예 : JSON) DB</li>
+	<li>Neo4j : 그래프 DB</li>	
 	
 </ul>
+
 
 
 ## 기타 
@@ -71,6 +91,17 @@
 			<li>200 제외 Status 처리(예외)</li>
 			<li>@JsonIgnoreProperties : 해당 유형에 해당되지 않을 경우 변환 시 해당 값은 무시</li>
 			<li>@JsonProperty : JSON 속성값 직접 지정(변수명은 다르지만 JSON으로 변환을 하고자 할 경우)</li>
+		</ul>
+	</li>	
+</ol>
+
+## TODO
+
+<ol type="2">
+	<li>애노테이션 설멍
+		<ul>
+			<li>200 제외 Status 처리(예외) : OK</li>
+			<li>Controller(기능 테스트용 컨트롤러 제외) Response 통잃(인터셉터 활용)</li>
 		</ul>
 	</li>	
 </ol>
