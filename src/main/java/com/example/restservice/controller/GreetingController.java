@@ -1,7 +1,12 @@
 package com.example.restservice.controller;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,9 +26,28 @@ public class GreetingController {
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		
 		return new Greeting(
-				counter.incrementAndGet() // Greeting.id
-					, String.format(template, name) // Greeting.content
+				counter.incrementAndGet()
+					, String.format(template, name)
 		);
 	}
+	
+	@GetMapping("/greeting_hateoas")
+	public HttpEntity<Greeting> greetingRest(@RequestParam(value = "name", defaultValue = "World") String  name) {
+		Greeting greeting = new Greeting(
+				counter.incrementAndGet()
+				, String.format(template, name)
+				);
+		
+		greeting.add(
+				linkTo(
+					methodOn(GreetingController.class).greetingRest(name)
+				)
+				.withSelfRel()
+		);
+		
+		return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);
+		
+	}
+	
 	
 }
