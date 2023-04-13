@@ -163,9 +163,13 @@
 			</resource>
 		</resources>
 		<plugins>
+			
+			
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				
+				<!-- run 시 Neo4j에서 InaccessibleObjectException 해결 위함 -->
 				<configuration>
 			        <jvmArguments>
 			          --add-opens=java.base/java.nio.charset=ALL-UNNAMED
@@ -173,6 +177,7 @@
 			      </configuration>
 			</plugin>
 			
+			<!-- mvn test 시 Neo4j에서 InaccessibleObjectException 해결 위함 -->
 			<plugin>
 		      <groupId>org.apache.maven.plugins</groupId>
 		      <artifactId>maven-surefire-plugin</artifactId>
