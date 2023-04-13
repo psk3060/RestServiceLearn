@@ -6,7 +6,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -55,9 +54,12 @@ public class GeodeTest {
 	@Test
 	void notValidPathTest() throws Exception {
 		mockMvc.perform(post("/person").content("{ \"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}"))
-//				.andDo(print())
-				.andExpect(status().is4xxClientError())
-				.andExpect(status().isNotFound());
+				.andDo(print())
+		
+			// 예외 발생 시 처리 방식 개선 하였으므로 Ok가 발생
+				// .andExpect(status().isNotFound())
+				.andExpect(status().isOk())
+				;
 	}
 	
 	@Test
@@ -232,9 +234,12 @@ public class GeodeTest {
 		// get으로 조회
 		mockMvc
 			.perform(get(location))
-			// .andDo(print())
+			.andDo(print())
 			// not found
-			.andExpect(status().isNotFound())
+			// 예외 발생 시 처리 방식 개선 하였으므로 Ok가 발생
+			// .andExpect(status().isNotFound())
+			.andExpect(status().isOk())
+			
 		;
 		
 		// 제거하였으니 한 개만 존재

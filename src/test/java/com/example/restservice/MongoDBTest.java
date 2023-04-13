@@ -55,7 +55,9 @@ public class MongoDBTest {
 						.content("{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")
 			)
 			.andDo(print())
-			.andExpect(status().isNotFound())
+			// 예외 발생 시 처리 방식 개선 하였으므로 Ok가 발생
+			// .andExpect(status().isNotFound())
+			.andExpect(status().isOk())
 		;
 		
 	}
@@ -236,7 +238,7 @@ public class MongoDBTest {
 		mockMvc.perform(
 				delete(location)
 		)
-		// .andDo(print())
+		.andDo(print())
 		.andExpect(status().isNoContent())
 		;
 		
@@ -248,8 +250,11 @@ public class MongoDBTest {
 		;
 		
 		mockMvc.perform(get(location))
-			// .andDo(print())
-			.andExpect(status().isNotFound())
+			.andDo(print())
+			// 예외 발생 시 처리 방식 개선 하였으므로 Ok가 발생
+					// .andExpect(status().isNotFound())
+					.andExpect(status().isOk())
+			
 		;
 		
 		

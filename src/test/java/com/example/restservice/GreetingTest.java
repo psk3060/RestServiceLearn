@@ -50,4 +50,14 @@ public class GreetingTest {
 			
 	}
 	
+	@Test
+	void greetingRestTest() throws Exception {
+		
+		mockMvc.perform(get("/greeting_hateoas").param("name", "Spring"))
+				.andDo(print()) // 모든 정보 Log 출력(가능하면 추가)
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.content").value("Hello, Spring"));
+			
+	}
+	
 }
