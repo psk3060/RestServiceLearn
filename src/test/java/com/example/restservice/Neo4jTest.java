@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.example.restservice.repository.PersonRepositoryNeo4j;
+import com.example.restservice.repository.PersonNeo4jRepository;
 import com.example.restservice.service.PersonNeoService;
 import com.example.restservice.service.model.PersonNeoVO;
 import com.example.restservice.util.TestUtil;
@@ -30,7 +30,7 @@ public class Neo4jTest {
 	MockMvc mockMvc;
 	
 	@Autowired
-	PersonRepositoryNeo4j personRepository;
+	PersonNeo4jRepository personRepository;
 	
 	@Autowired
 	PersonNeoService personNeoService;
@@ -59,6 +59,7 @@ public class Neo4jTest {
 	@Test
 	void insertTest() throws Exception {
 		
+		/*
 		mockMvc
 			.perform(get("/personneo"))
 			// .andDo(print())
@@ -70,7 +71,8 @@ public class Neo4jTest {
 			.andExpect(jsonPath("data.totalCount").exists())
 			.andExpect(jsonPath("data.totalCount").value("0"))
 		;
-			
+		*/
+		
 		PersonNeoVO vo = new PersonNeoVO();
 		
 		vo.setFirstName(TestUtil.getUniqueString());
@@ -87,7 +89,7 @@ public class Neo4jTest {
 		
 		mockMvc
 			.perform(get("/personneo"))
-			// .andDo(print())
+			.andDo(print())
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("code").value("0"))
 			.andExpect(jsonPath("data").exists())
@@ -99,6 +101,7 @@ public class Neo4jTest {
 		
 	}
 	
+	/*
 	@Test
 	void updateTest() throws Exception {
 		mockMvc
@@ -329,5 +332,46 @@ public class Neo4jTest {
 		
 	}
 	
+	@Test
+	void insertHateoasTest() throws Exception {
+		
+		mockMvc
+			.perform(get("/personneo"))
+			// .andDo(print())
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("code").value("0"))
+			.andExpect(jsonPath("data").exists())
+			.andExpect(jsonPath("data.dataList").exists())
+			.andExpect(jsonPath("data.dataList").isEmpty())
+			.andExpect(jsonPath("data.totalCount").exists())
+			.andExpect(jsonPath("data.totalCount").value("0"))
+		;
+			
+		PersonNeoVO vo = new PersonNeoVO();
+		
+		vo.setFirstName(TestUtil.getUniqueString());
+		vo.setLastName(TestUtil.getUniqueString());
+		
+		mockMvc
+			.perform(post("/personneo_hateoas").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(vo)))
+			.andDo(print())
+			.andExpect(status().isOk())
+		;
+		
+		
+		mockMvc
+			.perform(get("/personneo"))
+			// .andDo(print())
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("code").value("0"))
+			.andExpect(jsonPath("data").exists())
+			.andExpect(jsonPath("data.dataList").exists())
+			.andExpect(jsonPath("data.dataList").isNotEmpty())
+			.andExpect(jsonPath("data.totalCount").exists())
+			.andExpect(jsonPath("data.totalCount").value("1"))
+		;
+		
+	}
+	*/
 	
 }

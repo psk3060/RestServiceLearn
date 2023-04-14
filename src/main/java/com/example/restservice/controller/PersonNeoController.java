@@ -23,8 +23,6 @@ import com.example.restservice.exception.ResultServiceException;
 import com.example.restservice.service.PersonNeoService;
 import com.example.restservice.service.model.PersonNeoVO;
 
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
-
 @RestController
 public class PersonNeoController {
 	
@@ -85,7 +83,7 @@ public class PersonNeoController {
 			
 		} catch(Exception e) {
 			
-			logger.error("exception {}", e.toString());
+			logger.error("exceptionController : ", e);
 			
 			code = "999";
 			message = "시스템에러";
@@ -202,34 +200,5 @@ public class PersonNeoController {
 		
 		return new ResponseEntity<>(new ResponseDataVo(code, message, data), HttpStatusCode.valueOf(200));
 	}
-	
-	/*
-	@PostMapping("/personneo_hateoas")
-	public @ResponseBody ResponseEntity<PersonNeoVO> addPersonHateoas(@RequestBody PersonNeoVO vo) throws Exception {
-		
-		PersonNeoVO saveUser = new PersonNeoVO();
-		
-		saveUser.setFirstName(vo.getFirstName());
-		saveUser.setLastName(vo.getLastName());
-		
-		saveUser = personNeoService.insert(saveUser);
-		
-		if( saveUser == null ) {
-			throw new ResultServiceException("100", "회원 등록 실패");
-			
-		}
-		
-		saveUser
-			.add(
-				linkTo(
-					methodOn(PersonNeoController.class).addPersonHateoas(saveUser)
-				)
-				.withSelfRel()
-			);
-		
-		
-		return new ResponseEntity<PersonNeoVO>(saveUser, HttpStatusCode.valueOf(200));
-	}
-	*/
 	
 }

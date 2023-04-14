@@ -103,7 +103,7 @@
 		<ul>
 			<li>200 제외 Status 처리(예외) : OK(Enum으로 관리할 필요 있음)</li>
 			<li>Controller(기능 테스트용 컨트롤러 제외) Response 통일(인터셉터 활용)</li>
-			<li></li>
+			<li>트랜잭션 처리(Service에 애노테이션)</li>
 		</ul>
 	</li>	
 </ol>

@@ -40,6 +40,8 @@ public class DefaultConfig {
 	 */
 	@Bean
 	CommandLineRunner init(QuoteRepository repository) {
+		return null;
+		/*
 		return args -> {
 			repository.save(new Quote("Working with Spring Boot is like pair-programming with the Spring developers."));
 			repository.save(new Quote("With Boot you deploy everywhere you can find a JVM basically."));
@@ -64,6 +66,7 @@ public class DefaultConfig {
 					+ "to write double the code than in other langs? #newFavLib"));
 			
 		};
+		*/
 	}
 	
 	

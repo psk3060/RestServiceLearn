@@ -6,6 +6,7 @@ import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
+
 /**
  * Neo4j에서 사용하는 Person 
  */
@@ -24,7 +25,7 @@ public class PersonNeoVO implements Serializable {
 	private String firstName;
 	
 	private String lastName;
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -48,6 +49,5 @@ public class PersonNeoVO implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
 	
 }
