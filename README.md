@@ -2,7 +2,6 @@
 
 <ul>
 	<li>url : https://spring.io/guides/gs/rest-service</li>
-	<li>보충1 : https://spring.io/guides/gs/rest-hateoas</li>
 	<li>보충2 : https://spring.io/guides/gs/actuator-service</li>
 	<li>보충3 : https://spring.io/guides/gs/rest-service-cors</li>
 	<li>version : openjdk17</li>
@@ -55,10 +54,21 @@
 	<li>version : openjdk17</li>
 	<li>Github : https://github.com/spring-guides/gs-consuming-rest</li>
 	<li>Github-Special : https://github.com/spring-guides/quoters</li>	
-	<li>TestClass : RestComsumingTest(mvnw clean test -Dtest="RestComsumingTest")</li>		
+	<li>TestClass : RestComsumingTest(mvnw clean test -Dtest="RestComsumingTest")</li>	
 </ul>
 
-# 7. REST 통합
+# 7. HATEOAS
+<ul>
+	<li>url : https://spring.io/guides/gs/rest-hateoas/</li>
+	<li>version : openjdk17</li>
+	<li>DB : MariaDB</li>
+	<li>ORM : Mybatis</li>
+	<li>Github : https://github.com/spring-guides/gs-rest-hateoas</li>
+	<li>TestClass : HateOasTest(mvnw clean test -Dtest="HateOasTest")</li>	
+	<li>HATEOAS : https://docs.spring.io/spring-hateoas/docs/current/reference/html</li>	
+</ul>
+
+# 8. REST 통합
 
 <ul>
 	<li>url : https://spring.io/guides/tutorials/rest</li>
