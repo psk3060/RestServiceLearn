@@ -4,6 +4,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,8 @@ import com.example.restservice.service.model.Greeting;
 
 @RestController
 public class GreetingController {
+	
+	private Logger logger = LoggerFactory.getLogger(GreetingController.class);
 	
 	//  출력 템플릿
 	private static String template = "Hello, %s";

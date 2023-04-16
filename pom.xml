@@ -51,6 +51,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- 기본 로깅 프레임워크 제외 -->
+			<exclusions>
+			    <exclusion>
+			      <groupId>org.springframework.boot</groupId>
+			      <artifactId>spring-boot-starter-logging</artifactId>
+			    </exclusion>
+		  </exclusions>
 		</dependency>
 		
 		<dependency>
@@ -58,11 +65,18 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+		
 		<!-- geode 추가 -->
 		<dependency>
             <groupId>org.springframework.geode</groupId>
             <artifactId>spring-geode-starter</artifactId>
         </dependency>
+		
+		
 		
 		<dependency>
 	      <groupId>org.springframework.boot</groupId>

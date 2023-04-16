@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import com.example.restservice.core.HttpStatusEnum;
 import com.example.restservice.core.ResponseDataVo;
 import com.example.restservice.core.ResponseVo;
 
@@ -53,34 +54,8 @@ public class HttpStatusExceptionHandler {
 		}
 		
 		code = "SYS" + String.format("%06d", statusCode);
-		
-		switch(statusCode) {
-			case 201:
-				message = "Created";
-				break;
-			case 204:
-				message = "No Content";
-				break;
-			case 400:
-				message = "Bad Request";
-				break;
-			case 401:
-				message = "Unauthorized";
-				break;
-			case 403:
-				message = "Forbidden";
-				break;
-			case 404:
-				message = "Not Found";
-				break;
-			case 405:
-				message = "Method Not Allowed";
-				break;
-			default:
-				message = "Internal Server Error";
-				break;
-				
-		}
+		// 2023-04-16
+		message = HttpStatusEnum.valueOf(statusCode).getMessage();
 		
 		return new ResponseEntity<ResponseVo>(new ResponseDataVo(code, message), HttpStatus.OK);
 		

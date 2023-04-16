@@ -2,7 +2,6 @@
 
 <ul>
 	<li>url : https://spring.io/guides/gs/rest-service</li>
-	<li>보충1 : https://spring.io/guides/gs/rest-hateoas</li>
 	<li>보충2 : https://spring.io/guides/gs/actuator-service</li>
 	<li>보충3 : https://spring.io/guides/gs/rest-service-cors</li>
 	<li>version : openjdk17</li>
@@ -58,6 +57,15 @@
 	<li>TestClass : RestComsumingTest(mvnw clean test -Dtest="RestComsumingTest")</li>		
 </ul>
 
+# 6. HATEOAS REST
+
+<ul>
+	<li>URL : https://spring.io/guides/gs/rest-hateoas</li>
+	<li>version : openjdk17</li>
+	<li>Github : https://github.com/spring-guides/gs-rest-hateoas</li>
+	<li>TestClass : HateOasTest(mvnw clean test -Dtest="HateOasTest")</li>		
+</ul>
+
 # 7. REST 통합
 
 <ul>
@@ -104,6 +112,7 @@
 			<li>200 제외 Status 처리(예외) : OK(Enum으로 관리할 필요 있음)</li>
 			<li>Controller(기능 테스트용 컨트롤러 제외) Response 통일(인터셉터 활용)</li>
 			<li>트랜잭션 처리(Service에 애노테이션)</li>
+			<li>Logging 정리 : log4j2</li>
 		</ul>
 	</li>	
 </ol>
