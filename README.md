@@ -57,31 +57,20 @@
 	<li>TestClass : RestComsumingTest(mvnw clean test -Dtest="RestComsumingTest")</li>	
 </ul>
 
-<<<<<<< HEAD
-# 6. HATEOAS REST
+# 7. HATEOAS REST
 
 <ul>
 	<li>URL : https://spring.io/guides/gs/rest-hateoas</li>
 	<li>version : openjdk17</li>
+	<li>DB : MariaDB</li>
+	<li>ORM : Mybatis</li>	
 	<li>Github : https://github.com/spring-guides/gs-rest-hateoas</li>
 	<li>TestClass : HateOasTest(mvnw clean test -Dtest="HateOasTest")</li>		
-</ul>
-
-# 7. REST 통합
-=======
-# 7. HATEOAS
-<ul>
-	<li>url : https://spring.io/guides/gs/rest-hateoas/</li>
-	<li>version : openjdk17</li>
-	<li>DB : MariaDB</li>
-	<li>ORM : Mybatis</li>
-	<li>Github : https://github.com/spring-guides/gs-rest-hateoas</li>
-	<li>TestClass : HateOasTest(mvnw clean test -Dtest="HateOasTest")</li>	
 	<li>HATEOAS : https://docs.spring.io/spring-hateoas/docs/current/reference/html</li>	
 </ul>
 
+
 # 8. REST 통합
->>>>>>> refs/remotes/origin/developer
 
 <ul>
 	<li>url : https://spring.io/guides/tutorials/rest</li>
