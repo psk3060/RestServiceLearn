@@ -1,5 +1,7 @@
 package com.example.restservice.advice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -30,8 +32,12 @@ import com.example.restservice.core.ResponseVo;
 @RestControllerAdvice
 public class HttpStatusExceptionHandler {
 	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@ExceptionHandler(value = Exception.class)
 	public ResponseEntity<ResponseVo> httpErrorHandler(Exception ex) {
+		
+		
 		
 		String code = "SYS000500";
 		String message = "Internal Server Error";
@@ -51,6 +57,8 @@ public class HttpStatusExceptionHandler {
 		}
 		else {
 			statusCode = 500;
+			logger.error("HttpStatusExceptionHandler Exception is ", ex);
+			
 		}
 		
 		code = "SYS" + String.format("%06d", statusCode);
