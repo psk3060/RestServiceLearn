@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="DEBUG">
+<Configuration status="INFO">
 
     <Properties>
         <Property name="logFileName">catalina.out</Property>
         <Property name="logErrorFileName">catalina.out.error</Property>
-        <Property name="BASE_DIR">./logs</Property>
-        <Property name="consoleLayout">%style{%d{yyyy/MM/dd HH:mm:ss,SSS}}{cyan} %highlight{[%-5p]}{FATAL=bg_red, ERROR=red, INFO=green, DEBUG=blue} [%C] %style{[%t]}{yellow}- %m%n -</Property>
+        <Property name="BASE_DIR">/data/webapp/RestServiceLearn/logs</Property>
+        <Property name="consoleLayout">%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable</Property>
         <Property name="fileLayout">%d [%t] %-5level %c(%M:%L) - %m%n</Property>
     </Properties>
 
@@ -13,11 +13,10 @@
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="${consoleLayout}" charset="UTF-8"/>
         </Console>
-		
-		<!-- DEBUG부터 INFO까지만 출력 -->
+
         <RollingFile name="file" fileName="${BASE_DIR}/${logFileName}.log" filePattern="${BASE_DIR}/${logFileName}.%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="${fileLayout}" />
-            <LevelRangeFilter minLevel="DEBUG" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <LevelRangeFilter minLevel="ERROR" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
             <Policies>
                 <SizeBasedTriggeringPolicy size="10 MB"/>
                 <TimeBasedTriggeringPolicy modulate="true" interval="1" /><!-- 일별 로그 파일 생성-->
@@ -29,11 +28,10 @@
                 </Delete>
             </DefaultRolloverStrategy>
         </RollingFile>
-		
-		<!-- ERROR 이상만 허용(해당 레벨들만 - ERROR, FATAL 에러 파일 로깅) -->
+
         <RollingFile name="errorFile" fileName="${BASE_DIR}/${logErrorFileName}.log" filePattern="${BASE_DIR}/${logErrorFileName}.%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="${fileLayout}" />
-            <LevelRangeFilter minLevel="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <LevelRangeFilter minLevel="ERROR" maxLevel="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
             <Policies>
                 <SizeBasedTriggeringPolicy size="10 MB"/>
                 <TimeBasedTriggeringPolicy modulate="true" interval="1" />
@@ -52,8 +50,6 @@
         <Root level="ALL">
             <AppenderRef ref="console"/>
         </Root>
-		
-		
 		
     </Loggers>
 </Configuration>

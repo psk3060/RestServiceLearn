@@ -57,26 +57,6 @@
 	<li>TestClass : RestComsumingTest(mvnw clean test -Dtest="RestComsumingTest")</li>	
 </ul>
 
-# 7. HATEOAS REST
-
-<ul>
-	<li>URL : https://spring.io/guides/gs/rest-hateoas</li>
-	<li>version : openjdk17</li>
-	<li>DB : MariaDB</li>
-	<li>ORM : Mybatis</li>	
-	<li>Github : https://github.com/spring-guides/gs-rest-hateoas</li>
-	<li>TestClass : HateOasTest(mvnw clean test -Dtest="HateOasTest")</li>		
-	<li>HATEOAS : https://docs.spring.io/spring-hateoas/docs/current/reference/html</li>	
-</ul>
-
-
-# 8. REST 통합
-
-<ul>
-	<li>url : https://spring.io/guides/tutorials/rest</li>
-	<li>version : openjdk17</li>
-	<li>TestClass : </li>		
-</ul>
 
 ## 학습 중 정리
 
@@ -105,7 +85,17 @@
 			<li>@JsonProperty : JSON 속성값 직접 지정(변수명은 다르지만 JSON으로 변환을 하고자 할 경우)</li>
 			<li>@JsonCreator : POJO 인스턴스를 JACKON으로 변경</li>
 		</ul>
-	</li>	
+	</li>
+	<li>
+		<ul>
+			<li>ALL - TRACE - DEBUG - INFO - WARN - ERROR - FATAL - OFF 순으로 높아짐</li>
+			<li>onMatch, onMismatch : 필터링되었을 때와 되지 않은 로깅 레벨들에 대한 처리(ACCEPT, DENY)</li>
+			<li>minLevel : 설정한 레벨 이하의 레벨들을 필터링(DEBUG로 설정하면, TRACE와 DEBUG 필터링)</li>
+			<li>maxLevel : 설정한 레벨 이상의 레벨들을 필터링(ERROR와 FATAL 필터링)</li>			
+			<li>minLevel과 maxLevel을 함께 : minLevel과 maxLevel 사이의 로그는 필터링</li>
+		</ul>
+	</li>
+	
 </ol>
 
 ## TODO
@@ -114,9 +104,8 @@
 	<li>애노테이션 설멍
 		<ul>
 			<li>200 제외 Status 처리(예외) : OK(Enum으로 관리할 필요 있음)</li>
-			<li>Controller(기능 테스트용 컨트롤러 제외) Response 통일(인터셉터 활용)</li>
-			<li>트랜잭션 처리(Service에 애노테이션)</li>
-			<li>Logging 정리 : log4j2</li>
+			<li>Controller(기능 테스트용 컨트롤러 제외) Response 중복코드 제거 : Advice 생성 완료, MariaDB(UserController) 완료</li>
+			<li>Logging 정리</li>
 		</ul>
 	</li>	
 </ol>
