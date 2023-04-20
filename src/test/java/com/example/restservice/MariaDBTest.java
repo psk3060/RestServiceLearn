@@ -158,6 +158,7 @@ public class MariaDBTest {
 			.andExpect(jsonPath("data.result.id").value(id))
 		;
 		
+		
 		mockMvc
 			.perform(get("/user/" + id))
 			// .andDo(print())
@@ -281,7 +282,7 @@ public class MariaDBTest {
 		
 		mockMvc
 			.perform(get("/user"))
-			.andDo(print())
+			// .andDo(print())
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("code").value("0"))
 			.andExpect(jsonPath("data").exists())
