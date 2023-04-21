@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -15,11 +16,14 @@ import javax.sql.DataSource;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import com.example.restservice.repository.UserRepository;
 import com.example.restservice.service.UserService;
@@ -30,6 +34,8 @@ import com.example.restservice.util.TestUtil;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class MariaDBTest {
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
 	
 	@Autowired
 	DataSource dataSource;
@@ -48,7 +54,7 @@ public class MariaDBTest {
 		userRepository.deleteAll();
 	}
 	
-	// @Test
+	@Test
 	void connTest() throws Exception {
 		Connection c = dataSource.getConnection();
 		
@@ -57,7 +63,7 @@ public class MariaDBTest {
 	}
 	
 	
-	// @Test 
+	@Test 
 	void addUserTest() throws Exception {
 		
 		long count = userRepository.count();
@@ -91,9 +97,12 @@ public class MariaDBTest {
 		
 		assertEquals(Long.valueOf(0L), Long.valueOf(count));
 		
+		
+		// 
+		
 		mockMvc
 			.perform(post("/user").param("email", "a@n.com").param("name", "temp"))
-			// .andDo(print())
+			.andDo(print())
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("code").value("0"))
 			.andExpect(
@@ -101,7 +110,7 @@ public class MariaDBTest {
 						.value("회원 추가가 완료되었습니다.")
 			)
 		;
-		
+
 		count = userRepository.count();
 		
 		assertEquals(Long.valueOf(1L), Long.valueOf(count));

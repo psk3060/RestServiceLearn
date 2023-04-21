@@ -40,7 +40,7 @@ public class MongoDBTest {
 	void repositoryIdxExistTest() throws Exception {
 		mockMvc
 			.perform(get("/"))
-			.andDo(print())
+			// .andDo(print())
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$._links.personsM").exists())
 		;
@@ -54,7 +54,7 @@ public class MongoDBTest {
 					post("/personM")
 						.content("{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")
 			)
-			.andDo(print())
+			// .andDo(print())
 			// 예외 발생 시 처리 방식 개선 하였으므로 Ok가 발생
 			// .andExpect(status().isNotFound())
 			.andExpect(status().isOk())
@@ -69,7 +69,7 @@ public class MongoDBTest {
 			.perform(
 					post("/persons").content("{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")
 			)
-			.andDo(print())
+			// .andDo(print())
 			.andExpect(status().isCreated())
 			.andExpect(header().string("Location", containsString("/persons/")) )
 		;
@@ -136,7 +136,7 @@ public class MongoDBTest {
 		mockMvc.perform(
 				get("/persons/search/findByLastName").param("name", "Baggins")
 			)
-			.andDo(print())
+			// .andDo(print())
 			.andExpect(jsonPath("$._embedded.personsM").isNotEmpty())
 			.andExpect(jsonPath("$._embedded.personsM.length()").value("1"))
 			.andExpect(jsonPath("$._embedded.personsM[0].lastName").value("Baggins"))
@@ -177,7 +177,7 @@ public class MongoDBTest {
 		;
 		
 		mockMvc.perform(patch(location).content("{\"firstName\": \"Frodo_Modify\"}"))
-			.andDo(print())
+			// .andDo(print())
 			.andExpect(status().isNoContent())
 		;
 		
@@ -238,7 +238,7 @@ public class MongoDBTest {
 		mockMvc.perform(
 				delete(location)
 		)
-		.andDo(print())
+		// .andDo(print())
 		.andExpect(status().isNoContent())
 		;
 		
@@ -250,7 +250,7 @@ public class MongoDBTest {
 		;
 		
 		mockMvc.perform(get(location))
-			.andDo(print())
+			// .andDo(print())
 			// 예외 발생 시 처리 방식 개선 하였으므로 Ok가 발생
 					// .andExpect(status().isNotFound())
 					.andExpect(status().isOk())
