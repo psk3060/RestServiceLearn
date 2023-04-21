@@ -84,6 +84,9 @@
 			<li>@JsonIgnoreProperties : 해당 유형에 해당되지 않을 경우 변환 시 해당 값은 무시</li>
 			<li>@JsonProperty : JSON 속성값 직접 지정(변수명은 다르지만 JSON으로 변환을 하고자 할 경우)</li>
 			<li>@JsonCreator : POJO 인스턴스를 JACKON으로 변경</li>
+			<li>@RestControllerAdvice : 컨트롤러에서 발생하는 예외를 전역적으로 처리할 수 있는 기능 지원</li>
+			<li>@Aspect : 리턴타입 변환 기능(AOP) 사용하기 위해 필요한 애노테이션</li>
+			<li>@EnableAspectJAutoProxy : ASPECT 애노테이션 사용하기 위해 필요한 애노테이션</li>
 		</ul>
 	</li>
 	<li>
@@ -104,8 +107,8 @@
 	<li>애노테이션 설멍
 		<ul>
 			<li>200 제외 Status 처리(예외) : OK(Enum으로 관리할 필요 있음)</li>
-			<li>Controller(기능 테스트용 컨트롤러 제외) Response 중복코드 제거 : Advice 생성 완료, MariaDB(UserController) 완료</li>
-			<li>Logging 정리</li>
+			<li>Controller(기능 테스트용 컨트롤러 제외) Response 중복코드 제거(Advice) => 불가(Controller에서 ResponseDataVo를 반환하고, Advice에서 형변환하여 반환할 경우 ClassCastException 발생</li>
+			<li>Logging 정리 : OK</li>
 		</ul>
 	</li>	
 </ol>
