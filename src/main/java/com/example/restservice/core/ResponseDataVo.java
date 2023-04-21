@@ -33,7 +33,7 @@ public class ResponseDataVo extends ResponseVo {
 	
 	@Override
 	public String toString() {
-		return "code[" + getCode() + "], " + ", message[" + getMessage() + "], data : " + data.toString(); 
+		return "code[" + getCode() + "] " + ", message[" + getMessage() + "], data : " + data.toString(); 
 	}
 	
 }
