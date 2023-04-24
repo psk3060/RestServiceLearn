@@ -33,7 +33,7 @@ public class ResponseDataAdvice {
 	 * - 결과 매핑을 위해 execution(com.example.restservice.core.ResponseDataVo *(..)) 제거
 	 * -  
 	 */
-	@Pointcut("within(com.example.restservice.controller..*) && ( !@target(com.example.restservice.core.NotResponseData) )")
+	@Pointcut("within(com.example.restservice.controller..*) && ( !@annotation(com.example.restservice.core.NotResponseData) )")
 	public void restControllerPointCut() { }
 	
 	@Around("restControllerPointCut()")
