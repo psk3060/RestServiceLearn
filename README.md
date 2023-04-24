@@ -3,11 +3,13 @@
 <ul>
 	<li>url : https://spring.io/guides/gs/rest-service</li>
 	<li>보충2 : https://spring.io/guides/gs/actuator-service</li>
-	<li>보충3 : https://spring.io/guides/gs/rest-service-cors</li>
+	<li>보충3(Response 헤더에 Cross-Origin Resource Sharing) : https://spring.io/guides/gs/rest-service-cors</li>
 	<li>version : openjdk17</li>
 	<li>TestClass : GreetingTest(mvnw clean test -Dtest="GreetingTest")</li>
 	<li>TestClass : ActuatorTest(mvnw clean test -Dtest="ActuatorTest")</li>
+	<li>TestClass : CorsTest(mvnw clean test -Dtest="CorsTest")</li>	
 	<li>actuator github : https://github.com/spring-guides/gs-actuator-service</li>
+	<li>cors github : https://github.com/spring-guides/gs-rest-service-cors</li>
 </ul>
 
 
@@ -112,6 +114,7 @@
 			<li>200 제외 Status 처리(예외) : OK(Enum으로 관리할 필요 있음)</li>
 			<li>Controller(기능 테스트용 컨트롤러 제외) Response 중복코드 제거(Advice) => 불가(Controller에서 ResponseDataVo를 반환하고, Advice에서 형변환하여 반환할 경우 ClassCastException 발생</li>
 			<li>Logging 정리 : OK</li>
+			<li>CORS 설정 : 각 컨트롤러에 설정하는 것보다 별도의 Bean을 추가하는 것이 좋아서 후자를 선택</li>
 		</ul>
 	</li>	
 </ol>

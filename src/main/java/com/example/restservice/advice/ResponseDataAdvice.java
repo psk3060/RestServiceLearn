@@ -30,12 +30,16 @@ public class ResponseDataAdvice {
 	
 	/**
 	 * Pointcut 내부에서 ResponseDataVo만 입력할 경우 warning no match for this type name 발생하여, 패키지명까지 함께 입력
+	 * - 결과 매핑을 위해 execution(com.example.restservice.core.ResponseDataVo *(..)) 제거
+	 * -  
 	 */
-	@Pointcut("within(com.example.restservice.controller..*)")
+	@Pointcut("within(com.example.restservice.controller..*) && ( !@target(com.example.restservice.core.NotResponseData) )")
 	public void restControllerPointCut() { }
 	
 	@Around("restControllerPointCut()")
 	public Object wrapResponseData(ProceedingJoinPoint joinPoint) throws Throwable {
+		
+		logger.info("Init PointCut");
 		
 		Object returnValue = joinPoint.proceed();
 		
