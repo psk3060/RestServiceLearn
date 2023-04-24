@@ -37,8 +37,6 @@ public class HttpStatusExceptionHandler {
 	@ExceptionHandler(value = Exception.class)
 	public ResponseEntity<ResponseVo> httpErrorHandler(Exception ex) {
 		
-		
-		
 		String code = "SYS000500";
 		String message = "Internal Server Error";
 		

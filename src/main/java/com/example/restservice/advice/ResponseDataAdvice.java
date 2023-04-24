@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.example.restservice.core.ResponseDataVo;
+import com.example.restservice.exception.ServerInternalException;
 
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -42,7 +43,7 @@ public class ResponseDataAdvice {
 		if( !(returnValue instanceof ResponseEntity) ) {
 			
 			if( !(returnValue instanceof ResponseDataVo) ) {
-				throw new IllegalArgumentException("올바르지 않은 Response");
+				throw new ServerInternalException("500", "올바르지 않은 Response");
 				
 			}
 			

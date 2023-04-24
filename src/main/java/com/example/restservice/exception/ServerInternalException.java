@@ -1,23 +1,24 @@
 package com.example.restservice.exception;
 
-public class HttpNotFoundException extends RuntimeException {
+public class ServerInternalException extends RuntimeException {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 2919018695310753645L;
+	private static final long serialVersionUID = -4171415759096298792L;
+	
 	
 	String errorCode = "";
 	String errorMsg = "";
 	
 	// Default Constructor
-	public HttpNotFoundException() {}
+	public ServerInternalException() {}
 	
-	public HttpNotFoundException(String errorCode) {
+	public ServerInternalException(String errorCode) {
 		this.errorCode = errorCode;
 	}
 	
-	public HttpNotFoundException(String errorCode, String errorMsg) {
+	public ServerInternalException(String errorCode, String errorMsg) {
 		this.errorCode = errorCode;
 		this.errorMsg = errorMsg;
 	}

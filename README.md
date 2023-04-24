@@ -6,6 +6,8 @@
 	<li>보충3 : https://spring.io/guides/gs/rest-service-cors</li>
 	<li>version : openjdk17</li>
 	<li>TestClass : GreetingTest(mvnw clean test -Dtest="GreetingTest")</li>
+	<li>TestClass : ActuatorTest(mvnw clean test -Dtest="ActuatorTest")</li>
+	<li>actuator github : https://github.com/spring-guides/gs-actuator-service</li>
 </ul>
 
 
@@ -87,6 +89,7 @@
 			<li>@RestControllerAdvice : 컨트롤러에서 발생하는 예외를 전역적으로 처리할 수 있는 기능 지원</li>
 			<li>@Aspect : 리턴타입 변환 기능(AOP) 사용하기 위해 필요한 애노테이션</li>
 			<li>@EnableAspectJAutoProxy : ASPECT 애노테이션 사용하기 위해 필요한 애노테이션</li>
+			<li>@SpringBootTest의 webEnvironment를 이용하여, 테스트 시 포트 충돌 방지</li>
 		</ul>
 	</li>
 	<li>
