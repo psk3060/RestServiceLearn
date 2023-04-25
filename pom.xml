@@ -139,6 +139,12 @@
 			</exclusions>
 		</dependency>
 		
+		<dependency>
+		  <groupId>org.springframework.restdocs</groupId>
+		  <artifactId>spring-restdocs-mockmvc</artifactId>
+		  <scope>test</scope>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
 		    <groupId>org.apache.commons</groupId>
@@ -188,6 +194,32 @@
 			</resource>
 		</resources>
 		<plugins>
+			
+			<plugin>
+					<groupId>org.asciidoctor</groupId>
+					<artifactId>asciidoctor-maven-plugin</artifactId>
+					<version>1.5.8</version>
+					<executions>
+						<execution>
+							<id>generate-docs</id>
+							<phase>prepare-package</phase>
+							<goals>
+								<goal>process-asciidoc</goal>
+							</goals>
+							<configuration>
+								<backend>html</backend>
+								<doctype>book</doctype>
+							</configuration>
+						</execution>
+					</executions>
+					<dependencies>
+						<dependency>
+							<groupId>org.springframework.restdocs</groupId>
+							<artifactId>spring-restdocs-asciidoctor</artifactId>
+							<version>${spring-restdocs.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
 			
 			
 			<plugin>

@@ -2,6 +2,7 @@ package com.example.restservice;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
@@ -9,6 +10,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+
 
 import java.sql.Connection;
 
@@ -19,11 +24,11 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import com.example.restservice.repository.UserRepository;
 import com.example.restservice.service.UserService;
@@ -33,8 +38,10 @@ import com.example.restservice.util.TestUtil;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@AutoConfigureRestDocs(outputDir = "target/snippets")
 public class MariaDBTest {
 	
+	@SuppressWarnings("unused")
 	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
 	
 	@Autowired
@@ -103,6 +110,22 @@ public class MariaDBTest {
 		mockMvc
 			.perform(post("/user").param("email", "a@n.com").param("name", "temp"))
 			.andDo(print())
+			// REST docs 통해 REST 문서 생성
+			.andDo(
+					document(
+							"add-user"
+							, responseFields(
+									fieldWithPath("code").description("결과코드")
+									, fieldWithPath("message").description("결과메세지")
+									, fieldWithPath("data").description("결과데이터")
+									, fieldWithPath("data.result").description("결과데이터-객체")
+									, fieldWithPath("data.result.id").description("회원SEQ")
+									, fieldWithPath("data.result.userId").description("회원ID")
+									, fieldWithPath("data.result.name").description("회원명")
+									, fieldWithPath("data.result.email").description("회원이메일")
+							)
+					)
+			)
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("code").value("0"))
 			.andExpect(

@@ -115,6 +115,13 @@
 			<li>minLevel과 maxLevel을 함께 : minLevel과 maxLevel 사이의 로그는 필터링</li>
 		</ul>
 	</li>
+	<li>REST Docs 생성
+		<ul>
+			<li>Test 서버에서 MariaDBTest#addUserControllerTest에 작성</li>
+			<li>SnippetException : 결과에 누락된 사항이 있을 경우(속성 확인 필요 - 누락되어도 에러 발생하지 않는 옵션)</li>
+			<li>FieldDescriptor를 통해 다양한 옵션 사용 가능(문서를 이쁘게 꾸밀 수도 있음) - 학습 할 것</li>
+		</ul>
+	</li>
 	
 </ol>
 
