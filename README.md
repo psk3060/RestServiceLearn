@@ -1,3 +1,14 @@
+# 0. REST 정리
+
+## 1) RESTful 서비스 구현 시 얻을 수 있는 이점(REST는 표준이 아니라, 단순한 접근방식일 뿐)
+<ol>
+	<li>이전 버전과 호환되는 API</li>
+	<li>진화 가능한 API</li>
+	<li>확장 가능한 서비스</li>
+	<li>보안 서비스</li>
+	<li>상태 저장, 비저장 서비스</li>
+</ol>
+
 # 1. Simple REST 서비스 생성
 
 <ul>
@@ -70,6 +81,7 @@
 	<li>Neo4j : 그래프 DB</li>	
 	<li>RepresentationModel : 객체를 JSON 정보로 전환해줄 뿐만 아니라, 링크 정보도 제공해줌</li>
 	<li>hateoas : REST API 서비스 개발 시 편리함</li>
+	<li>REST Tut Github : https://github.com/spring-guides/tut-rest</li>
 </ul>
 
 
